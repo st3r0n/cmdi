@@ -1,0 +1,4 @@
+os command injection
+
+NOTE:-- understand the context in which it is used
+eg --> it may be either parematers or some type of assignment to the command or any script
